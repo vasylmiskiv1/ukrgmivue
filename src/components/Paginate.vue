@@ -25,9 +25,7 @@ export default {
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 
 .pagination {
-  margin-top: 100px;
   cursor: pointer;
-  padding: 0 20px;
 }
 
 .page-item:hover {

@@ -7,7 +7,6 @@
       </option>
     </select>
   </div>
-
 </template>
 
 <script>
@@ -39,6 +38,7 @@ export default {
   display: flex;
   height: 30px;
   gap: 30px;
+  color: white;
 }
 
 .filter-label {
