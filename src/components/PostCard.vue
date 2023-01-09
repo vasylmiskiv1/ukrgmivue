@@ -4,11 +4,13 @@
       <div class="card-title">{{ post.title }}</div>
     </router-link>
     <div class="card-body">{{ post.body }}</div>
-    <div class="card-comments">Comments: {{ this.comments.length }}</div>
+    <div class="card-comments" @mouseover="isShowEmailStats = true" @mouseleave="isShowEmailStats = false">Comments: {{ this.comments.length }}</div>
+    <EmailStatsModal v-if="isShowEmailStats" :comments="comments"/>
   </div>
 </template>
 <script>
 import { mapActions } from 'vuex';
+import EmailStatsModal from './EmailStatsModal.vue';
 
 export default {
   name: 'PostCard',
@@ -18,9 +20,10 @@ export default {
   data() {
     return {
       comments: [],
+      isShowEmailStats: false,
     }
   },
-  components: {},
+  components: { EmailStatsModal },
   computed: {},
   methods: {
     ...mapActions({
@@ -31,12 +34,13 @@ export default {
   async mounted() {
    const comments = await this.getPostComments(this.post.id);
    this.comments = comments;
-  }
+  },
 }
 </script>
 
 <style>
 .card {
+  position: relative;
   padding: 30px 20px;
   border: 1px solid #c0c0c0;
   max-width: 360px;
@@ -51,18 +55,19 @@ export default {
 .card:hover {
   transform: scale(1.01);
   transition: all 0.3s;
+  z-index: 1;
 }
 
 .card-title {
   font-size: 20px;
   text-transform: capitalize;
   text-align: center;
-  color: aquamarine;
+  color: rgb(86, 233, 184);
   transition: all 0.3s;
 }
 
 .card-title:hover {
-  color: rgb(80, 224, 176);
+  color: rgb(11, 173, 119);
 }
 
 .card-body {
@@ -72,6 +77,11 @@ export default {
 .card-comments {
   text-align: right;
   font-size: 13px;
+}
+
+.card-comments:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
 

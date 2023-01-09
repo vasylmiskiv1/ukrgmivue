@@ -33,16 +33,17 @@ export default {
 <style>
 .searchbar {
   text-align: center;
-  margin: 50px auto;
+  margin: 0 auto;
   max-width: 900px;
   padding: 0 20px;
 }
 
 .searchbar-input {
   width: 100%;
+  margin-top: 100px;
   padding: 10px 20px;
   border: 1px solid #c0c0c0;
-  background-color: #ebebeb;
+  background-color: #fafafa;
   border-radius: 5px;
   outline: none;
   transition: 0.5s;
@@ -50,6 +51,6 @@ export default {
 }
 
 .searchbar-input:focus {
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 </style>

@@ -1,9 +1,7 @@
 <template>
-  <div>
     <SearchBar />
     <Posts :postsChunk="postsChunk" :comments="postsChunkComments" />
     <Paginate :pagesAmount="pagesAmount" :changePage="changePage" :currentPage="currentPage"/>
-  </div>
 </template>
 
 <script>
@@ -44,11 +42,6 @@ export default {
       changePage: 'post/changePage',
     }),
   },
-  watch: {
-    filteredPostsLength(newValue) {
-      // udpate posts chunk
-    }
-  },
   mounted() {
     this.getPosts();
     this.getPostComments();
@@ -57,11 +50,11 @@ export default {
 </script>
 
 <style>
-/* .posts-title {
+.posts-title {
   text-align: center;
   font-size: 45px;
   text-transform: uppercase;
-} */
+}
 </style>
 
 
