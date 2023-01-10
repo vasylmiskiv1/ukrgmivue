@@ -36,11 +36,11 @@ export default {
   margin: 0 auto;
   max-width: 900px;
   padding: 0 20px;
+  margin-top: 30px;
 }
 
 .searchbar-input {
   width: 100%;
-  margin-top: 100px;
   padding: 10px 20px;
   border: 1px solid #c0c0c0;
   background-color: #fafafa;
