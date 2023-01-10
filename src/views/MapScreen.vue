@@ -27,7 +27,7 @@ export default {
   methods: {
     mapInit() {
       this.map = leaflet.map('map',
-        { zoomControl: true, zoom: 1, zoomAnimation: false, fadeAnimation: true, markerZoomAnimation: true })
+        { center: [48.3799, 31.1656], zoomControl: true, zoom: 5, zoomAnimation: false, fadeAnimation: true, markerZoomAnimation: true })
         .setView([48.3799, 31.1656], 6.3)
         .on('click', this.onMapClick);
 
