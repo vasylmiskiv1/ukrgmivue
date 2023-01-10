@@ -1,7 +1,9 @@
 <template>
+  <div class="posts">
     <h1 class="posts-title">{{ title }}</h1>
-  <div class="post-list">
-    <PostCard :key="post.id" v-for="post in postsChunk" :post="post" />
+    <div class="post-list">
+      <PostCard :key="post.id" v-for="post in postsChunk" :post="post" />
+    </div>
   </div>
 </template>
 
@@ -31,8 +33,8 @@ export default {
 }
 
 .posts-title {
-  margin-top: 50px;
   color: #fff;
+  margin-top: 45px;
 }
 
 .post-list {

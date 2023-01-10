@@ -1,7 +1,9 @@
 <template>
+  <div class="posts-screen">
     <SearchBar />
     <Posts :postsChunk="postsChunk" :comments="postsChunkComments" />
     <Paginate :pagesAmount="pagesAmount" :changePage="changePage" :currentPage="currentPage"/>
+  </div>
 </template>
 
 <script>
@@ -50,6 +52,9 @@ export default {
 </script>
 
 <style>
+.posts-screen {
+  padding: 45px 0;
+}
 .posts-title {
   text-align: center;
   font-size: 45px;

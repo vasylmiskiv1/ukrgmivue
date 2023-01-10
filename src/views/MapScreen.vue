@@ -19,25 +19,21 @@ export default {
       isModalActive: false,
       votedCoordinates: {},
       map: {},
-      markerCoordinates: {},
-      marker: {},
+      favMarkers: {},
       isLocalStorageChanged: false,
     }
   },
   methods: {
     mapInit() {
-      this.map = leaflet.map('map',
-        { zoomControl: true, zoom: 1, zoomAnimation: false, fadeAnimation: true, markerZoomAnimation: true })
+      this.map = leaflet.map('map' , {zoomControl: true,zoom:1,zoomAnimation:false,fadeAnimation:true,markerZoomAnimation:true})
         .setView([48.3799, 31.1656], 6.3)
         .on('click', this.onMapClick);
 
-      this.markerCoordinates = Object.fromEntries(Object.entries({ ...localStorage }));
+      leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 16,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(this.map);
 
-      this.marker =
-        leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(this.map);
       this.getAllMarkers();
     },
     onMapClick(e) {
@@ -48,23 +44,24 @@ export default {
       }
     },
     onSubmitModal(nameOfTheMarker, lat, lng) {
-      if (!Object.keys(this.markerCoordinates).includes(nameOfTheMarker)) {
+      if (!Object.keys(this.favMarkers).includes(nameOfTheMarker)) {
         const coordinates = [lat, lng];
         localStorage.setItem(nameOfTheMarker, JSON.stringify(coordinates));
-        this.isModalActive = false;
-        this.markerCoordinates = Object.fromEntries(Object.entries({ ...localStorage }));
+        this.favMarkers = Object.fromEntries(Object.entries({ ...localStorage }));
         this.isLocalStorageChanged = true;
+        this.isModalActive = false;
       } else {
         alert(`${nameOfTheMarker} already exists. Please choose another name`);
       }
     },
     getAllMarkers() {
-      for (const marker in this.markerCoordinates) {
-        const nameOfTheMarker = marker;
-        const lat = JSON.parse(this.markerCoordinates[marker])[0];
-        const lng = JSON.parse(this.markerCoordinates[marker])[1];
+      this.favMarkers = Object.fromEntries(Object.entries({ ...localStorage }));
 
-        leaflet.marker([lat, lng]).addTo(this.map).bindTooltip(nameOfTheMarker);
+      for (const favMarker in this.favMarkers) {
+        const lat = JSON.parse(this.favMarkers[favMarker])[0];
+        const lng = JSON.parse(this.favMarkers[favMarker])[1];
+
+        leaflet.marker([lat, lng]).addTo(this.map).bindPopup(favMarker)
       }
     },
   },
@@ -88,7 +85,7 @@ export default {
   z-index: 1;
   height: 100vh;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   border: 1px solid #c0c0c0;
   border-radius: 5px;
 }
