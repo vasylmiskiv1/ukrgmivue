@@ -37,7 +37,7 @@ export const postModule = {
     async getPosts({ state, commit }) {
       try {
         commit("setLoading", true);
-        const res = await fetch(`https://jsonplaceholder.typicode.com/posts`, {
+        const res = await fetch(`${import.meta.env.VITE_APP_POSTS_URL}`, {
           headers: { "Content-type": "application/json" },
         });
         const posts = await res.json();
@@ -63,12 +63,13 @@ export const postModule = {
       try {
         commit("setLoading", true);
         const res = await fetch(
-          `https://jsonplaceholder.typicode.com/comments?postId=${postId}`,
+          `${import.meta.env.VITE_APP_COMMENTS_URL}?postId=${postId}`,
           {
             headers: { "Content-type": "application/json" },
           }
         );
         const comments = await res.json();
+
         return comments;
       } catch (error) {
         console.log(error);

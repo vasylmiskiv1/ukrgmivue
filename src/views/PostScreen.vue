@@ -5,11 +5,10 @@
 </template>
 
 <script>
-  export default {
-    name: "PostScreen",
-  }
+export default {
+  name: "PostScreen",
+}
 </script>
-
 
 <style>
 

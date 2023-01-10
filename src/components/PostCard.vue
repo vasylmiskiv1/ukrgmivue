@@ -75,8 +75,8 @@ export default {
 }
 
 .card-comments {
-  text-align: right;
   font-size: 13px;
+  margin-left: auto;
 }
 
 .card-comments:hover {
