@@ -46,8 +46,7 @@ export default {
   methods: {
     createMarker(e) {
       e.preventDefault();
-      localStorage.setItem(this.nameOfTheMarker, JSON.stringify(this.markerCoordinates));
-      this.$emit("onModalClose")
+      this.$emit("onSubmitModal", this.nameOfTheMarker, this.votedCoordinates.lat, this.votedCoordinates.lng)
     }
   }
 }
