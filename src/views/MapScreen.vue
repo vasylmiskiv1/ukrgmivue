@@ -25,11 +25,11 @@ export default {
   },
   methods: {
     mapInit() {
-      this.map = leaflet.map('map' , {zoomControl: true,zoom:1,zoomAnimation:false,fadeAnimation:true,markerZoomAnimation:true})
+      this.map = leaflet.map('map', { zoomControl: true, zoom: 1, zoomAnimation: false, fadeAnimation: true, markerZoomAnimation: true })
         .setView([48.3799, 31.1656], 6.3)
         .on('click', this.onMapClick);
 
-      leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      leaflet.tileLayer(`${import.meta.env.VITE_APP_OPENSTREET_URL}`, {
         maxZoom: 16,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       }).addTo(this.map);
@@ -61,7 +61,7 @@ export default {
         const lat = JSON.parse(this.favMarkers[favMarker])[0];
         const lng = JSON.parse(this.favMarkers[favMarker])[1];
 
-        leaflet.marker([lat, lng]).addTo(this.map).bindPopup(favMarker)
+        leaflet.marker([lat, lng]).addTo(this.map).bindPopup(favMarker);
       }
     },
   },
@@ -83,7 +83,7 @@ export default {
 #map {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  min-height: calc(100vh - 56px);
   margin: 0 auto;
   width: 100%;
   border: 1px solid #c0c0c0;

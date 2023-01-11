@@ -2,7 +2,7 @@
   <div class="posts-screen">
     <SearchBar />
     <Posts :postsChunk="postsChunk" :comments="postsChunkComments" />
-    <Paginate :pagesAmount="pagesAmount" :changePage="changePage" :currentPage="currentPage"/>
+    <Paginate :pagesAmount="pagesAmount" :changePage="changePage" :currentPage="currentPage" />
   </div>
 </template>
 
@@ -54,11 +54,6 @@ export default {
 <style>
 .posts-screen {
   padding: 45px 0;
-}
-.posts-title {
-  text-align: center;
-  font-size: 45px;
-  text-transform: uppercase;
 }
 </style>
 

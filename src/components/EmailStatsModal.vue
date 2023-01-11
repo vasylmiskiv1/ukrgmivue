@@ -19,7 +19,8 @@ export default {
     return {
       chartData: {
         labels: this.comments.map(comment => comment.email),
-        datasets: [{ label: 'Amount of symbols in email', 
+        datasets: [{
+          label: 'Amount of symbols in email',
           data: this.comments.map(comment => this.countLetters(comment.email)),
           backgroundColor: '#f87979'
         }],

@@ -1,11 +1,11 @@
 <template>
   <div class="card">
-    <router-link class="post" :to="`/post/${post.id}`">
       <div class="card-title">{{ post.title }}</div>
-    </router-link>
     <div class="card-body">{{ post.body }}</div>
-    <div class="card-comments" @mouseover="isShowEmailStats = true" @mouseleave="isShowEmailStats = false">Comments: {{ this.comments.length }}</div>
-    <EmailStatsModal v-if="isShowEmailStats" :comments="comments"/>
+    <div class="card-comments" @mouseover="isShowEmailStats = true" @mouseleave="isShowEmailStats = false">Comments: {{
+      this.comments.length
+    }}</div>
+    <EmailStatsModal v-if="isShowEmailStats" :comments="comments" />
   </div>
 </template>
 <script>
@@ -32,8 +32,8 @@ export default {
   },
   emits: [],
   async mounted() {
-   const comments = await this.getPostComments(this.post.id);
-   this.comments = comments;
+    const comments = await this.getPostComments(this.post.id);
+    this.comments = comments;
   },
 }
 </script>
@@ -62,12 +62,13 @@ export default {
   font-size: 20px;
   text-transform: capitalize;
   text-align: center;
-  color: rgb(86, 233, 184);
+  color: rgb(0, 0, 0);
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .card-title:hover {
-  color: rgb(11, 173, 119);
+  color: rgb(78, 214, 169)
 }
 
 .card-body {
