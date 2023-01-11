@@ -3,7 +3,6 @@
     <input class="searchbar-input" v-model="searchSuggestion" type="text" placeholder="Search...">
     <FilterTool />
   </div>
-
 </template>
 
 <script>

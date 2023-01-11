@@ -26,6 +26,4 @@
 .header {
   background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(72, 212, 156, 1) 0%, rgba(71, 193, 188, 1) 100%, rgba(0, 212, 255, 1) 100%);
 }
-
-
 </style>

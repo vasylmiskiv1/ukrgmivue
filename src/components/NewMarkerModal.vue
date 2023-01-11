@@ -8,21 +8,18 @@
           <input class="new-marker__input" type="text" placeholder="Name..." v-model="nameOfTheMarker">
         </label>
       </div>
-
       <div class="new-marker__form-group">
         <label class="new-marker__label">
           Latitude:
           <input class="new-marker__input" :value="votedCoordinates.lat" type="text" disabled>
         </label>
       </div>
-
       <div class="new-marker__form-group">
         <label class="new-marker__label">
           Longitude:
           <input class="new-marker__input" :value="votedCoordinates.lng" type="text" disabled>
         </label>
       </div>
-
       <button class="new-marker__submit" :disabled="!this.nameOfTheMarker.length" v-on:click="createMarker">
         Create a new marker
       </button>
@@ -111,5 +108,4 @@ export default {
 button:disabled {
   background-color: #c0c0c0;
 }
-
 </style>

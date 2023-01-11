@@ -35,6 +35,7 @@ export default {
 .posts-title {
   color: #fff;
   margin-top: 45px;
+  text-align: center;
 }
 
 .post-list {

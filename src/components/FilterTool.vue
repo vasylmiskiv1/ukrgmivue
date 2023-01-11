@@ -2,7 +2,8 @@
   <div class="filter">
     <p class="filter-label">Sort titles:</p>
     <select class="filter-select" name="sortBy" id="sortBy" @change="sortPostsByTitle">
-      <option :selected="option.selected" :disabled="option.disabled" v-for="option in sortOptions" :value="option.value">
+      <option :selected="option.selected" :disabled="option.disabled" v-for="option in sortOptions"
+        :value="option.value">
         {{ option.text }}
       </option>
     </select>
@@ -19,7 +20,7 @@ export default {
     return {
       sortOptions: [
         { text: 'Select your option', value: '', selected: true, disabled: true },
-        { text: 'By descending (A to Z)', value: 'desc'},
+        { text: 'By descending (A to Z)', value: 'desc' },
         { text: 'By ascending (Z to A)', value: 'asc' },
       ]
     }
