@@ -2,7 +2,7 @@
   <div class="card">
       <div class="card-title">{{ post.title }}</div>
     <div class="card-body">{{ post.body }}</div>
-    <div class="card-comments" @mouseover="isShowEmailStats = true" @mouseleave="isShowEmailStats = false">Comments: {{
+    <div class="card-comments" @click="isShowEmailStats = true">Comments: {{
       this.comments.length
     }}</div>
     <EmailStatsModal v-if="isShowEmailStats" :comments="comments" />
@@ -44,6 +44,7 @@ export default {
   padding: 30px 20px;
   border: 1px solid #c0c0c0;
   max-width: 360px;
+  height: 450px;
   border-radius: 2%;
   display: flex;
   margin: 0 auto;

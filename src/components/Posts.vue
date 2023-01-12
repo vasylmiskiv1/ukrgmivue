@@ -1,7 +1,9 @@
 <template>
   <div class="posts">
     <h1 class="posts-title">{{ title }}</h1>
-    <div class="post-list">
+    <div id="posts-loader" class="spinner-border text-info" role="status" v-if="isLoading">
+    </div>
+    <div class="posts-list">
       <PostCard :key="post.id" v-for="post in postsChunk" :post="post" />
     </div>
   </div>
@@ -14,6 +16,7 @@ export default {
   name: 'Posts',
   props: {
     postsChunk: Array,
+    isLoading: Boolean,
   },
   data() {
     return {
@@ -27,9 +30,8 @@ export default {
 </script>
 
 <style>
-.post {
-  text-decoration: none;
-  color: #000;
+.posts {
+  position: relative;
 }
 
 .posts-title {
@@ -38,7 +40,7 @@ export default {
   text-align: center;
 }
 
-.post-list {
+.posts-list {
   text-align: center;
   max-width: 1200px;
   padding: 0 20px;
@@ -46,11 +48,24 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 20px;
+  z-index: 5;
 }
 
 .posts-list__empty {
   margin-top: 50px;
   text-align: center;
 }
+
+#posts-loader {
+  position: absolute;
+  left: 0;
+  right: 0; 
+  top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  width: 50px;
+}
+
 </style>
 

@@ -1,8 +1,8 @@
 <template>
   <div class="posts-screen">
     <SearchBar />
-    <Posts :postsChunk="postsChunk" :comments="postsChunkComments" />
-    <Paginate :pagesAmount="pagesAmount" :changePage="changePage" :currentPage="currentPage" />
+    <Posts :postsChunk="postsChunk" :comments="postsChunkComments" :isLoading="isLoading"/>
+    <Paginate :pagesAmount="pagesAmount" :changePage="changePage" :currentPage="currentPage" :isLoading="isLoading"/>
   </div>
 </template>
 

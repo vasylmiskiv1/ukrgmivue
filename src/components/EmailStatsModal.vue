@@ -1,17 +1,17 @@
 <template>
   <div class="card-modal">
-    <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+    <Pie :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Pie } from 'vue-chartjs'
+ChartJS.register(ArcElement, Tooltip, Legend)
 
 export default {
   name: "EmailStasModal",
-  components: { Bar },
+  components: { Pie },
   props: {
     comments: Array,
   },
@@ -19,14 +19,17 @@ export default {
     return {
       chartData: {
         labels: this.comments.map(comment => comment.email),
-        datasets: [{
-          label: 'Amount of symbols in email',
-          data: this.comments.map(comment => this.countLetters(comment.email)),
-          backgroundColor: '#f87979'
-        }],
+        datasets: [
+          {
+            label: 'Amount of symbols in email',
+            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+            data: this.comments.map(comment => this.countLetters(comment.email)),
+          }
+        ]
       },
       chartOptions: {
-        responsive: true
+        responsive: true,
+        maintainAspectRatio: false
       }
     }
   },
@@ -52,15 +55,14 @@ export default {
 
 <style>
 .card-modal {
-  background-color: rgba(230, 229, 229, 0.822);
-  height: 200px;
-  width: 450px;
-  left: 100px;
-  bottom: 100px;
+  background-color: #fff;
+  height: 300px;
+  box-sizing: border-box;
+  width: 90%;
+  bottom: 50px;
   position: absolute;
   z-index: 10;
   border-radius: 3px;
   transition: 0.5 all ease-in;
-  border: 1px solid #c0c0c0;
 }
 </style>
