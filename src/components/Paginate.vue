@@ -1,5 +1,5 @@
 <template>
-  <paginate :page-count="pagesAmount" :page-range="3" :margin-pages="10" :force-page="this.currentPage"
+  <paginate :page-count="pagesAmount" :page-range="4" :force-page="this.currentPage"
     :click-handler="changePage" :prev-text="'Prev'" :next-text="'Next'"
     :container-class="'pagination justify-content-center flex-wrap pointer'"
     :page-class="'page-item flex justify-center'" v-if="pagesAmount">
