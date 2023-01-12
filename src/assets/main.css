@@ -4,5 +4,5 @@ html,body {
 
 #app {
   min-height: 100%;
-  background: linear-gradient(#e66465, #9198e5);
+  background: linear-gradient(47deg, rgba(19,39,78,1) 0%, rgba(48,121,153,1) 100%, rgba(0,212,255,1) 100%);
 }

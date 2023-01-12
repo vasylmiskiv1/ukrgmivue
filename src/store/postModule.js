@@ -2,14 +2,13 @@ export const postModule = {
   state: () => ({
     posts: [],
     filteredPosts: [],
-    postsChunk: [],
+    postsChunk: null,
     isLoading: false,
     postsOnPage: 10,
     offset: 0,
     currentPage: 1,
     pagesAmount: 0,
   }),
-  getter: {},
   mutations: {
     setPosts(state, posts) {
       state.posts = posts;
