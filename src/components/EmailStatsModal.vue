@@ -55,7 +55,7 @@ export default {
 
 <style>
 .card-modal {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.877);
   height: 300px;
   box-sizing: border-box;
   width: 90%;

@@ -2,7 +2,7 @@
   <div class="card">
       <div class="card-title">{{ post.title }}</div>
     <div class="card-body">{{ post.body }}</div>
-    <div class="card-comments" @click="isShowEmailStats = true">Comments: {{
+    <div class="card-comments" @click="isShowEmailStats = !isShowEmailStats">Comments: {{
       this.comments.length
     }}</div>
     <EmailStatsModal v-if="isShowEmailStats" :comments="comments" />
@@ -51,12 +51,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-}
-
-.card:hover {
-  transform: scale(1.01);
-  transition: all 0.3s;
-  z-index: 1;
 }
 
 .card-title {
