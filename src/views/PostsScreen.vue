@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 import Posts from '../components/Posts.vue'
 import Paginate from '../components/Paginate.vue';
@@ -28,10 +28,6 @@ export default {
       currentPage: state => state.post.currentPage,
       pagesAmount: state => state.post.pagesAmount,
     }),
-    ...mapGetters({}),
-    filteredPostsLength() {
-      return this.filteredPosts.length;
-    }
   },
   methods: {
     ...mapMutations({

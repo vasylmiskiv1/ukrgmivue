@@ -3,9 +3,12 @@
     <h1 class="posts-title">{{ title }}</h1>
     <div id="posts-loader" class="spinner-border text-info" role="status" v-if="isLoading">
     </div>
-    <div class="posts-list">
+    <div class="posts-list" v-if="postsChunk && postsChunk.length">
       <PostCard :key="post.id" v-for="post in postsChunk" :post="post" />
     </div>
+    <h4 v-if="postsChunk && !postsChunk.length" class="posts-empty">
+      Post list is empty
+    </h4>
   </div>
 </template>
 
@@ -17,6 +20,7 @@ export default {
   props: {
     postsChunk: Array,
     isLoading: Boolean,
+    filteredPostsLength: Number,
   },
   data() {
     return {
@@ -24,8 +28,6 @@ export default {
     }
   },
   components: { PostCard },
-  emits: [],
-  mounted() { }
 }
 </script>
 
@@ -68,5 +70,10 @@ export default {
   z-index: 5;
 }
 
+.posts-empty {
+  margin-top: 200px;
+  color:#fff;
+  text-align: center;
+}
 </style>
 
