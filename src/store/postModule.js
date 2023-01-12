@@ -79,12 +79,14 @@ export const postModule = {
     },
 
     changePage({ state, commit }, pageNum) {
+      commit("setLoading", true);
       state.currentPage = pageNum;
       commit("setOffset", state.postsOnPage * pageNum - state.postsOnPage);
       commit(
         "setPostsChunk",
         [...state.filteredPosts].splice(state.offset, state.postsOnPage)
       );
+      commit("setLoading", false);
     },
 
     filterPostsBySuggestion({ state, commit }, suggestion) {
@@ -110,6 +112,8 @@ export const postModule = {
 
     sortPostsByTitle({ state, commit }, event) {
       const orderBy = event.target.value;
+      commit("setLoading", true);
+
       if (orderBy === "desc") {
         commit(
           "setFilteredPosts",
@@ -127,6 +131,7 @@ export const postModule = {
         "setPostsChunk",
         [...state.filteredPosts].splice(state.offset, state.postsOnPage)
       );
+      commit("setLoading", false);
     },
   },
 
