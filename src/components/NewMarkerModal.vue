@@ -11,13 +11,13 @@
       <div class="new-marker__form-group">
         <label class="new-marker__label">
           Latitude:
-          <input class="new-marker__input" :value="votedCoordinates.lat" type="text" disabled>
+          <input class="new-marker__input" :value="votedCoordinates.lat.toFixed(4)" type="text" disabled>
         </label>
       </div>
       <div class="new-marker__form-group">
         <label class="new-marker__label">
           Longitude:
-          <input class="new-marker__input" :value="votedCoordinates.lng" type="text" disabled>
+          <input class="new-marker__input" :value="votedCoordinates.lng.toFixed(4)" type="text" disabled>
         </label>
       </div>
       <button class="new-marker__submit" :disabled="!this.nameOfTheMarker.length" v-on:click="createMarker">
@@ -63,7 +63,7 @@ export default {
   padding: 60px 20px;
   z-index: 2;
   border: 1px solid #c0c0c0;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .new-marker__form {

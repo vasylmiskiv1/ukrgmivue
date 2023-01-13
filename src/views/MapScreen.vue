@@ -87,6 +87,5 @@ export default {
   margin: 0 auto;
   width: 100%;
   border: 1px solid #c0c0c0;
-  border-radius: 5px;
 }
 </style>

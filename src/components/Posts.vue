@@ -44,11 +44,11 @@ export default {
 
 .posts-list {
   text-align: center;
-  max-width: 1200px;
+  max-width: 1450px;
   padding: 0 20px;
   margin: 50px auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 20px;
   z-index: 5;
 }
