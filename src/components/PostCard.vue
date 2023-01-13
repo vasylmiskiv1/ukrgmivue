@@ -1,10 +1,15 @@
 <template>
   <div class="card">
-      <div class="card-title">{{ post.title }}</div>
+    <div class="card-title">{{ post.title }}</div>
     <div class="card-body">{{ post.body }}</div>
-    <div class="card-comments" @click="isShowEmailStats = !isShowEmailStats">Comments: {{
+    <div class="card-comments">
+      <img class="card-arrow arrow_up" v-if="isShowEmailStats" src="../assets/arrow-up.svg" alt="arrow-up">
+      <img class="card-arrow arrow_down" v-else src="../assets/arrow-down.svg" alt="arrow-down">
+      <div @click="isShowEmailStats = !isShowEmailStats">Comments: {{
       this.comments.length
     }}</div>
+    </div>
+    
     <EmailStatsModal v-if="isShowEmailStats" :comments="comments" />
   </div>
 </template>
@@ -40,15 +45,9 @@ export default {
 
 <style>
 .card {
-  position: relative;
-  padding: 30px 20px;
+  padding: 30px 18px;
   border: 1px solid #c0c0c0;
-  max-width: 360px;
   height: 450px;
-  border-radius: 2%;
-  display: flex;
-  margin: 0 auto;
-  flex-direction: column;
   justify-content: center;
   gap: 20px;
 }
@@ -73,11 +72,18 @@ export default {
 .card-comments {
   font-size: 13px;
   margin-left: auto;
+  display: flex;
+  gap: 5px;
 }
 
 .card-comments:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.card-arrow {
+  height: 12px;
+  margin-top: 5px;
 }
 </style>
 
