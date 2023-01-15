@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "chart.js": "^4.1.2",
+    "mosha-vue-toastify": "^1.0.23",
     "vant": "^4.0.7",
     "vue": "^3.2.45",
     "vue-chartjs": "^5.1.0",
     "vue-router": "^4.1.6",
+    "vue-toastify": "^1.8.1",
     "vuejs-paginate-next": "^1.0.2",
     "vuex": "^4.0.2"
   },

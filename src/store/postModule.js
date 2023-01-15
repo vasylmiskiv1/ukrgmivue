@@ -8,6 +8,7 @@ export const postModule = {
     offset: 0,
     currentPage: 1,
     pagesAmount: 0,
+    errorText: "",
   }),
   mutations: {
     setPosts(state, posts) {
@@ -31,6 +32,9 @@ export const postModule = {
     setPagesAmount(state, pagesAmount) {
       state.pagesAmount = pagesAmount;
     },
+    setErrorMessage(state, errorMessage) {
+      state.errorText = errorMessage;
+    },
   },
   actions: {
     async getPosts({ state, commit }) {
@@ -52,7 +56,7 @@ export const postModule = {
         );
         commit("setOffset", state.postsOnPage * 1 - state.postsOnPage);
       } catch (error) {
-        console.log(error);
+        commit("setErrorMessage", error.message);
       } finally {
         commit("setLoading", false);
       }
@@ -71,7 +75,7 @@ export const postModule = {
 
         return comments;
       } catch (error) {
-        console.log(error);
+        commit("setErrorMessage", error.message);
       } finally {
         commit("setLoading", false);
       }
